@@ -132,7 +132,12 @@ a:hover { color: var(--red2); }
 
 /* ── Hero — big & cinematic ───────────────────────────────── */
 .hero {
-  background: var(--dark);
+  background-color: var(--dark);
+  background-image:
+    linear-gradient(rgba(11,11,10,.84), rgba(11,11,10,.88)),
+    var(--hero-bg, none);
+  background-size: cover;
+  background-position: center 35%;
   color: #f0ebe2;
   border-radius: 0;
   padding: 1.5rem 2rem 1.6rem;
@@ -295,6 +300,14 @@ a:hover { color: var(--red2); }
   border-bottom: 2px solid var(--ink);
 }
 .sport-emoji { font-size: 1.1rem; flex: none; }
+.comp-logo {
+  height: 28px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  flex: none;
+  filter: grayscale(.15);
+}
 .sport-name {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
@@ -372,6 +385,20 @@ a:hover { color: var(--red2); }
   border-top: 1px solid var(--line);
   margin: 0;
 }
+/* ── Score bar ────────────────────────────────────────────── */
+.score-bar {
+  display: flex;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  gap: 1px;
+}
+.score-bar-a, .score-bar-h { height: 100%; border-radius: 2px; }
+.score-bar-a.win  { background: var(--red); }
+.score-bar-a.loss { background: var(--line); }
+.score-bar-h.win  { background: var(--ink); }
+.score-bar-h.loss { background: var(--line); }
+
 .verdict-badge {
   display: inline-block;
   background: var(--vc, #475569);
@@ -388,8 +415,13 @@ a:hover { color: var(--red2); }
 
 /* ── Weekly match highlight ───────────────────────────────── */
 .weekly-highlight {
-  margin: 1.5rem -1.5rem 0;
-  background: #1a1915;
+  margin: 0 -1.5rem 0;
+  background-color: #1a1915;
+  background-image:
+    linear-gradient(rgba(15,14,11,.88), rgba(15,14,11,.92)),
+    var(--wh-bg, none);
+  background-size: cover;
+  background-position: center 30%;
   border-top: 4px solid #f0b429;
   padding: 1.5rem 2rem 1.6rem;
   color: #f0ebe2;
@@ -470,6 +502,52 @@ a:hover { color: var(--red2); }
 }
 .wh-tac-body { font-size: .82rem; line-height: 1.55; color: #c8bfb4; margin: 0; }
 
+/* ── Action photo strip ───────────────────────────────────── */
+.photo-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 260px;
+  margin: 0 -1.5rem;
+  overflow: hidden;
+}
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .5s ease;
+}
+.photo-frame:hover img { transform: scale(1.04); }
+.photo-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: .6rem .8rem .5rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.75));
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.photo-caption {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #fff;
+  line-height: 1.2;
+}
+.photo-credit {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .52rem;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .06em;
+}
+
 /* ── Featured fixtures ────────────────────────────────────── */
 .featured-section { margin: 0; }
 .fixture-grid {
@@ -498,10 +576,20 @@ a:hover { color: var(--red2); }
   align-items: center;
 }
 .fix-league {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
   font-family: 'IBM Plex Mono', monospace;
   font-size: .6rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .14em;
   color: var(--red);
+}
+.fix-comp-logo {
+  height: 18px;
+  width: auto;
+  max-width: 50px;
+  object-fit: contain;
+  flex: none;
 }
 .fix-date {
   font-family: 'IBM Plex Mono', monospace;
@@ -803,7 +891,10 @@ a:hover { color: var(--red2); }
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 760px) {
+  .photo-strip { height: 180px; grid-template-columns: 1fr 1fr; }
+  .photo-strip .photo-frame:last-child { display: none; }
   .hero, .weekly-highlight, .tips-section, .sommelier-section { margin-left: -1rem; margin-right: -1rem; }
+  .photo-strip { margin-left: -1rem; margin-right: -1rem; }
   .hero, .weekly-highlight { padding: 1.5rem 1.2rem; }
   .tips-section { padding: 1.8rem 1.2rem; }
   .content { padding: 0 1rem 4rem; }
@@ -821,4 +912,6 @@ a:hover { color: var(--red2); }
   .matches-grid { grid-template-columns: 1fr; }
   .tips-grid    { grid-template-columns: 1fr; }
   .mast-title   { font-size: 5rem; }
+  .photo-strip  { height: 140px; grid-template-columns: 1fr; }
+  .photo-strip .photo-frame:not(:first-child) { display: none; }
 }
