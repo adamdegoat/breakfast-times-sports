@@ -83,8 +83,8 @@ a:hover { color: var(--red2); }
 .mast-title {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: clamp(5rem, 18vw, 11rem);
-  line-height: .82;
+  font-size: clamp(3.5rem, 11vw, 7rem);
+  line-height: .85;
   text-transform: uppercase;
   letter-spacing: -.03em;
   color: #fff;
