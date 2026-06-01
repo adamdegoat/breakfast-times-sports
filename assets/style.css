@@ -1,0 +1,386 @@
+/* The Breakfast Times: Sports Edition
+   Crisp white newsprint · Bold red · Barlow Condensed headlines */
+
+:root {
+  --paper:    #ffffff;
+  --off:      #f8fafc;
+  --ink:      #0f172a;
+  --muted:    #64748b;
+  --dim:      #94a3b8;
+  --line:     #e2e8f0;
+  --red:      #dc2626;
+  --red2:     #ef4444;
+  --green:    #15803d;
+  --score-bg: #0f172a;
+  color-scheme: light;
+}
+
+*  { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--red); text-decoration: none; }
+a:hover { color: var(--red2); }
+
+/* ── Score ticker ─────────────────────────────────────────── */
+.ticker {
+  background: var(--score-bg);
+  overflow: hidden;
+  padding: .42rem 0;
+  border-bottom: 3px solid var(--red);
+}
+.ticker-track {
+  display: inline-flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: ticker-scroll 80s linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.tick-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .03em;
+}
+.tick-sport  { color: #475569; font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; }
+.tick-result { color: #cbd5e1; }
+.tick-win    { color: #4ade80; font-weight: 700; }
+.tick-div    { color: #1e293b; }
+
+/* ── Masthead ─────────────────────────────────────────────── */
+.masthead {
+  border-top: 6px solid var(--red);
+  padding: 1.6rem 1.5rem .8rem;
+}
+.mast-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.mast-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.mast-parent {
+  font-size: .63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  color: var(--muted);
+  margin-bottom: .05rem;
+}
+.mast-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(4.5rem, 14vw, 9rem);
+  line-height: .85;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.mast-date-block {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  line-height: 1.55;
+  flex: none;
+}
+.mast-edition  { font-size: .6rem; text-transform: uppercase; letter-spacing: .2em; color: var(--red); font-weight: 700; }
+.mast-date-str { font-size: .82rem; font-weight: 700; color: var(--ink); }
+.mast-coverage { font-size: .65rem; color: var(--muted); }
+.mast-rule {
+  border: none;
+  border-top: 2px solid var(--ink);
+  margin: .7rem 0 0;
+  position: relative;
+}
+.mast-rule::after {
+  content: '';
+  display: block;
+  border-top: 1px solid var(--ink);
+  margin-top: 3px;
+}
+.tagline {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--muted);
+  text-align: center;
+  padding: .42rem 0;
+  border-bottom: 1px solid var(--line);
+  margin-top: .45rem;
+}
+
+/* ── Main content ─────────────────────────────────────────── */
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.day-narrative {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: var(--muted);
+  margin: 1.5rem 0 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Hero match ───────────────────────────────────────────── */
+.hero {
+  background: var(--score-bg);
+  color: #e6edf3;
+  border-radius: 10px;
+  padding: 1.8rem 2rem;
+  margin: 1.8rem 0 2.5rem;
+}
+.hero-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: var(--red2);
+  margin-bottom: .5rem;
+}
+.hero-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1.05;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin: 0 0 1.2rem;
+}
+.hero-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: .6rem 0 1rem;
+  flex-wrap: wrap;
+}
+.hero-team {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.1;
+}
+.hero-team.away { text-align: right; }
+.hero-team.home { text-align: left; }
+.hero-team.winner { color: #4ade80; }
+.hero-team.loser  { color: #475569; }
+.hero-nums {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex: none;
+}
+.hero-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 2rem;
+  text-align: center;
+}
+.hero-num.win  { color: #4ade80; }
+.hero-num.loss { color: #334155; }
+.hero-sep   { color: #1e293b; font-size: 2.2rem; font-weight: 300; }
+.hero-venue {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .06em;
+  color: #475569;
+  text-align: center;
+  margin: -.4rem 0 .8rem;
+}
+.hero-recap {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: #94a3b8;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,.07);
+  margin: 0;
+}
+
+/* ── Sport sections ───────────────────────────────────────── */
+.sport-section { margin: 2.5rem 0 0; }
+.sport-header {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line);
+}
+.sport-emoji { font-size: 1.1rem; flex: none; }
+.sport-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.sport-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  color: var(--dim);
+  margin-left: auto;
+}
+
+/* ── Match cards grid ─────────────────────────────────────── */
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: .9rem;
+}
+.match-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .95rem 1.05rem;
+  background: var(--off);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.match-card:hover {
+  border-color: var(--red);
+  box-shadow: 0 4px 14px rgba(220,38,38,.09);
+}
+.team-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: .6rem;
+  margin-bottom: .6rem;
+}
+.team-rows { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .18rem; }
+.team-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.35;
+}
+.team-name.winner { color: var(--ink); font-weight: 700; }
+.team-name.loser  { color: var(--muted); }
+.score-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .18rem;
+  flex: none;
+}
+.score-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  min-width: 1.6rem;
+  text-align: right;
+}
+.score-num.win  { color: var(--green); }
+.score-num.loss { color: var(--dim); }
+.match-recap {
+  font-size: .8rem;
+  line-height: 1.52;
+  color: var(--muted);
+  padding-top: .55rem;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* ── Archive page ─────────────────────────────────────────── */
+.archive-section { margin: 2rem 0; }
+.archive-h {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line);
+}
+.archive-list { list-style: none; }
+.archive-list li {
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .9rem;
+}
+.archive-list li a { color: var(--ink); font-weight: 600; }
+.archive-list li a:hover { color: var(--red); }
+.archive-list .empty { color: var(--muted); font-style: italic; }
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer-band {
+  background: var(--score-bg);
+  color: #64748b;
+  padding: 2.4rem 1.5rem;
+  margin-top: 3rem;
+  border-top: 4px solid var(--red);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.foot-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #e2e8f0;
+  margin-bottom: .35rem;
+}
+.foot-tag {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  margin-bottom: 1rem;
+}
+.foot-nav {
+  font-size: .8rem;
+  margin-bottom: .7rem;
+}
+.foot-nav a { color: #94a3b8; }
+.foot-nav a:hover { color: var(--red2); }
+.foot-fine { font-size: .68rem; color: #334155; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .masthead { padding: 1.2rem 1rem .6rem; }
+  .mast-top { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .mast-date-block { text-align: left; }
+  .content { padding: 0 1rem 3rem; }
+  .hero { padding: 1.3rem 1.1rem; border-radius: 8px; }
+  .hero-score { gap: .8rem; }
+  .hero-num { font-size: 2.4rem; }
+  .matches-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .matches-grid { grid-template-columns: 1fr; }
+}
