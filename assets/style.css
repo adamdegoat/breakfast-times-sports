@@ -755,106 +755,268 @@ a:hover { color: var(--red2); }
   border-top: 1px solid #1a1208; padding-top: .7rem;
 }
 
-/* ── Sport Science ────────────────────────────────────────── */
-.science-section { margin: 0; }
-.science-title { color: var(--ink); }
-.science-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
-}
-.science-card {
-  background: #0f172a;
-  border: 1px solid #1e3a8a;
-  border-top: 3px solid #3b82f6;
-  border-radius: 6px;
-  padding: 1rem 1.1rem;
-  display: flex; flex-direction: column; gap: .5rem;
-  color: #e2e8f0;
-}
-.sci-cat-row { display: flex; align-items: center; gap: .4rem; }
-.sci-icon    { font-size: 1rem; flex: none; }
-.sci-cat {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .58rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .12em; color: #60a5fa;
-}
-.sci-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700; font-size: 1.1rem; text-transform: uppercase;
-  letter-spacing: .04em; color: #fff; margin: 0; line-height: 1.15;
-}
-.sci-protocol {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .7rem; color: #93c5fd;
-  background: rgba(59,130,246,.1);
-  padding: .35rem .6rem; border-radius: 4px;
-}
-.sci-proto-label { font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-right: .4rem; color: #60a5fa; }
-.sci-body { font-size: .82rem; line-height: 1.65; color: #94a3b8; margin: 0; flex: 1; }
-.sci-application {
-  background: rgba(59,130,246,.06);
-  border-left: 2px solid #3b82f6;
-  border-radius: 0 4px 4px 0;
-  padding: .6rem .8rem;
-}
-.sci-app-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .56rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .12em;
-  color: #60a5fa; display: block; margin-bottom: .3rem;
-}
-.sci-application p { font-size: .78rem; line-height: 1.5; color: #93c5fd; margin: 0; }
+/* ══════════════════════════════════════════════════════════
+   MEN'S HEALTH SPORT SCIENCE & S&C
+   ══════════════════════════════════════════════════════════ */
+.mh-science-section { margin: 0 -1.5rem; }
 
-/* ── Coaching Corner ──────────────────────────────────────── */
-.tips-section {
-  background: #052e16;
-  border-radius: 0;
-  padding: 1.5rem 2rem;
-  margin: 0 -1.5rem;
+.mh-sci-masthead {
+  background: #111;
+  padding: 2rem 2rem 1.6rem;
+  border-top: 5px solid #3b82f6;
+  position: relative;
+  overflow: hidden;
 }
-.tips-editorial-header { padding-top: 0; }
-.tips-rule  { border-top-color: #14532d; }
-.tips-title { color: #bbf7d0; }
-.tips-sub   { color: #4ade80; }
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+.mh-sci-masthead::after {
+  content: 'PERFORMANCE';
+  position: absolute;
+  right: -2rem; top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 5rem;
+  text-transform: uppercase; letter-spacing: -.02em;
+  color: rgba(255,255,255,.04); white-space: nowrap;
+  pointer-events: none;
 }
-.tip-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(74,222,128,.12);
-  border-radius: 6px;
-  padding: .85rem .9rem;
-  display: flex; flex-direction: column; gap: .4rem;
-}
-.tip-cat-row { display: flex; align-items: center; gap: .45rem; }
-.tip-icon    { font-size: 1rem; flex: none; }
-.tip-cat {
+.mh-sci-masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-start; gap: 1.5rem; }
+.mh-dna-icon { width: 40px; height: 60px; color: #3b82f6; flex: none; margin-top: .3rem; }
+.mh-sci-eyebrow {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .6rem; font-weight: 700;
-  letter-spacing: .14em; color: #4ade80; text-transform: uppercase;
+  text-transform: uppercase; letter-spacing: .28em;
+  color: #3b82f6; margin-bottom: .3rem;
 }
-.tip-title {
+.mh-sci-mega-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700; font-size: 1.05rem; text-transform: uppercase;
-  letter-spacing: .04em; color: #f0fdf4; margin: 0; line-height: 1.15;
+  font-weight: 800; font-size: clamp(2.2rem, 6vw, 3.8rem);
+  text-transform: uppercase; letter-spacing: -.02em;
+  color: #fff; line-height: .9; margin-bottom: .5rem;
 }
-.tip-body { font-size: .8rem; line-height: 1.6; color: #86efac; margin: 0; flex: 1; }
-.tip-pedagogy {
-  background: rgba(255,255,255,.04);
-  border-left: 2px solid rgba(74,222,128,.35);
-  border-radius: 0 4px 4px 0;
-  padding: .55rem .75rem;
+.mh-sci-deck {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic; font-size: .9rem;
+  color: #475569; line-height: 1.5;
 }
-.tip-ped-label {
+.mh-sci-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  background: #0a0a0a;
+  gap: 1px;
+  max-width: 100%;
+}
+
+/* Individual science cards */
+.mh-sci-card {
+  background: #111;
+  padding: 1.6rem 1.5rem;
+  display: flex; flex-direction: column; gap: .8rem;
+  color: #e2e8f0;
+}
+.mh-sci-card-top {
+  display: flex; align-items: flex-start; gap: .8rem;
+}
+.mh-sci-icon-wrap {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex: none;
+}
+.ss-icon { background: rgba(59,130,246,.15); color: #93c5fd; }
+.sc-icon { background: rgba(220,38,38,.15); color: #f87171; }
+.rec-icon { background: rgba(168,85,247,.15); color: #c4b5fd; }
+.mh-sci-card-cat {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .54rem; font-weight: 700;
+  font-size: .58rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em;
+  line-height: 1.6;
+}
+.ss-card .mh-sci-card-cat { color: #60a5fa; }
+.sc-card .mh-sci-card-cat { color: #f87171; }
+.rec-card .mh-sci-card-cat { color: #c4b5fd; }
+.mh-sci-card-cat span { color: rgba(255,255,255,.4); }
+.mh-sci-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.25rem; text-transform: uppercase;
+  letter-spacing: -.01em; line-height: 1.1; color: #fff; margin: 0;
+}
+/* Stat callout */
+.mh-stat-callout {
+  display: flex; align-items: baseline; gap: .6rem;
+  padding: .8rem 1rem;
+  border-radius: 6px;
+  background: rgba(59,130,246,.1);
+  border-left: 3px solid #3b82f6;
+}
+.mh-big-stat {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 2.8rem; line-height: 1;
+  color: #60a5fa; letter-spacing: -.03em; flex: none;
+}
+.mh-stat-desc { font-size: .78rem; line-height: 1.45; color: #64748b; }
+/* Exercise chip */
+.mh-exercise-chip {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: .9rem; text-transform: uppercase;
+  letter-spacing: .08em; color: #f87171;
+  background: rgba(220,38,38,.1);
+  border: 1px solid rgba(220,38,38,.25);
+  border-radius: 4px; padding: .2rem .7rem;
+  align-self: flex-start;
+}
+/* Protocol badges */
+.mh-proto-grid {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+}
+.mh-proto-badge {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 6px; padding: .5rem .65rem;
+  min-width: 52px; text-align: center;
+}
+.rec-badge { background: rgba(168,85,247,.08); border-color: rgba(168,85,247,.2); }
+.mh-proto-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.4rem; line-height: 1; color: #fff;
+}
+.mh-proto-key {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .5rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: #475569; margin-top: .15rem;
+}
+/* Body text */
+.mh-sci-body { font-size: .82rem; line-height: 1.65; color: #64748b; margin: 0; }
+/* Application box */
+.mh-field-box {
+  border-radius: 4px; padding: .7rem .85rem;
+  margin-top: auto;
+}
+.ss-field { background: rgba(59,130,246,.07); border-left: 2px solid #3b82f6; }
+.sc-field { background: rgba(220,38,38,.07);  border-left: 2px solid #dc2626; }
+.rec-field{ background: rgba(168,85,247,.07); border-left: 2px solid #a855f7; }
+.mh-field-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .55rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em;
+  margin: 0 0 .3rem;
+}
+.ss-field  .mh-field-label { color: #60a5fa; }
+.sc-field  .mh-field-label { color: #f87171; }
+.rec-field .mh-field-label { color: #c4b5fd; }
+.mh-field-box p { font-size: .78rem; line-height: 1.5; margin: 0; color: #94a3b8; }
+
+/* ══════════════════════════════════════════════════════════
+   MEN'S HEALTH COACHING CORNER
+   ══════════════════════════════════════════════════════════ */
+.mh-coaching-section {
+  margin: 0 -1.5rem;
+  background: #031a0d;
+}
+.mh-coaching-masthead {
+  display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap;
+  padding: 1.6rem 2rem 1.2rem;
+  border-top: 5px solid #22c55e;
+  background: #042210;
+  position: relative; overflow: hidden;
+}
+.mh-coaching-ball {
+  flex: none; opacity: .12; position: absolute; right: 1.5rem; top: 50%;
+  transform: translateY(-50%);
+}
+.coaching-ball-svg { width: 120px; height: 72px; color: #4ade80; }
+.mh-coaching-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .28em;
+  color: #4ade80; margin-bottom: .2rem;
+}
+.mh-coaching-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem);
+  text-transform: uppercase; letter-spacing: -.02em;
+  color: #f0fdf4; line-height: .9; margin-bottom: .4rem;
+}
+.mh-coaching-deck {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic; font-size: .88rem; color: #166534;
+}
+.mh-intensity-legend {
+  display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .58rem; color: #166534; text-transform: uppercase;
+  letter-spacing: .1em; margin-left: auto;
+}
+.mh-legend-dot {
+  padding: .18rem .5rem; border-radius: 3px;
+  font-size: .52rem; font-weight: 700;
+  color: #fff; letter-spacing: .08em;
+}
+
+/* Numbered tip rows */
+.mh-tips-list {
+  padding: 0 2rem 1.8rem;
+  display: flex; flex-direction: column;
+}
+.mh-tip-row {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid rgba(74,222,128,.08);
+}
+.mh-tip-row:last-child { border-bottom: none; }
+.mh-tip-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 3rem; line-height: 1;
+  color: rgba(74,222,128,.15); letter-spacing: -.04em;
+  flex: none; min-width: 3rem; text-align: right;
+  user-select: none;
+}
+.mh-tip-content { flex: 1; min-width: 0; }
+.mh-tip-meta {
+  display: flex; align-items: center; gap: .5rem; margin-bottom: .45rem; flex-wrap: wrap;
+}
+.mh-tip-icon-wrap { font-size: 1rem; flex: none; }
+.mh-tip-cat {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; color: #4ade80;
+}
+.mh-intensity-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .52rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  background: var(--ic, #0369a1);
+  color: #fff; padding: .15rem .5rem; border-radius: 3px;
+}
+.mh-tip-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1.2rem; text-transform: uppercase;
+  letter-spacing: .02em; color: #f0fdf4; margin: 0 0 .5rem; line-height: 1.1;
+}
+.mh-tip-body { font-size: .82rem; line-height: 1.65; color: #86efac; margin: 0 0 .6rem; }
+/* Stat strip */
+.mh-stat-strip {
+  display: flex; align-items: flex-start; gap: .5rem;
+  background: rgba(74,222,128,.06);
+  border-left: 2px solid #4ade80;
+  border-radius: 0 4px 4px 0;
+  padding: .5rem .7rem; margin-bottom: .6rem;
+}
+.mh-stat-strip-bar { flex: none; width: 3px; background: #4ade80; border-radius: 2px; align-self: stretch; display: none; }
+.mh-stat-strip-text { font-size: .78rem; line-height: 1.5; color: #6ee7b7; }
+/* Method box */
+.mh-method-box {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(74,222,128,.1);
+  border-radius: 4px; padding: .55rem .7rem;
+}
+.mh-method-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .55rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .14em;
   color: #4ade80; display: block; margin-bottom: .3rem;
 }
-.tip-pedagogy p { font-size: .75rem; line-height: 1.5; color: #6ee7b7; margin: 0; }
+.mh-method-box p { font-size: .75rem; line-height: 1.55; color: #6ee7b7; margin: 0; }
 
 /* ── Archive ──────────────────────────────────────────────── */
 .archive-section { margin: 2.5rem 0; }
@@ -893,25 +1055,28 @@ a:hover { color: var(--red2); }
 @media (max-width: 760px) {
   .photo-strip { height: 180px; grid-template-columns: 1fr 1fr; }
   .photo-strip .photo-frame:last-child { display: none; }
-  .hero, .weekly-highlight, .tips-section, .sommelier-section { margin-left: -1rem; margin-right: -1rem; }
+  .hero, .weekly-highlight, .sommelier-section,
+  .mh-coaching-section, .mh-science-section { margin-left: -1rem; margin-right: -1rem; }
   .photo-strip { margin-left: -1rem; margin-right: -1rem; }
   .hero, .weekly-highlight { padding: 1.5rem 1.2rem; }
-  .tips-section { padding: 1.8rem 1.2rem; }
+  .mh-coaching-masthead, .mh-tips-list { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .mh-sci-masthead, .mh-sci-masthead-inner { padding-left: 1.2rem; padding-right: 1.2rem; }
   .content { padding: 0 1rem 4rem; }
   .hero-headline { font-size: 2rem; }
   .hero-num { font-size: 3.5rem; }
   .hero-badge { width: 72px; height: 72px; }
   .hero-matchup { gap: .8rem; }
   .matches-grid { grid-template-columns: 1fr 1fr; }
-  .science-grid { grid-template-columns: 1fr; }
+  .mh-sci-grid { grid-template-columns: 1fr; }
   .fixture-grid { grid-template-columns: 1fr; }
   .som-grid { grid-template-columns: 1fr; }
-  .tips-grid { grid-template-columns: 1fr 1fr; }
+  .mh-tip-num { font-size: 2rem; min-width: 2.2rem; }
 }
 @media (max-width: 480px) {
   .matches-grid { grid-template-columns: 1fr; }
-  .tips-grid    { grid-template-columns: 1fr; }
   .mast-title   { font-size: 5rem; }
   .photo-strip  { height: 140px; grid-template-columns: 1fr; }
   .photo-strip .photo-frame:not(:first-child) { display: none; }
+  .mh-proto-grid { gap: .35rem; }
+  .mh-tip-row { gap: .7rem; }
 }
